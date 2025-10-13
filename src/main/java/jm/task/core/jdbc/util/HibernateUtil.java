@@ -29,9 +29,9 @@ public class HibernateUtil {
             dbSettings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
 
 
-            dbSettings.put(Environment.SHOW_SQL, "true"); // See generated SQL
-            dbSettings.put(Environment.FORMAT_SQL, "true"); // Format SQL for readability
-            dbSettings.put(Environment.HBM2DDL_AUTO, "update"); // Create/update tables automatically
+            dbSettings.put(Environment.SHOW_SQL, "true");
+            dbSettings.put(Environment.FORMAT_SQL, "true");
+            dbSettings.put(Environment.HBM2DDL_AUTO, "update");
 
 
             dbSettings.put(Environment.C3P0_MIN_SIZE, "5");

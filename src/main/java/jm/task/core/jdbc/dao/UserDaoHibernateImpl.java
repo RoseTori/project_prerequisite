@@ -22,20 +22,24 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            String createTableSQL = "CREATE TABLE IF NOT EXISTS users (" +
+            String createSQL = "CREATE TABLE IF NOT EXISTS users (" +
                     "id BIGINT NOT NULL AUTO_INCREMENT, " +
                     "name VARCHAR(255) NOT NULL, " +
                     "lastName VARCHAR(255) NOT NULL, " +
                     "age TINYINT NOT NULL, " +
                     "PRIMARY KEY (id)) ENGINE=InnoDB";
 
-            session.createNativeQuery(createTableSQL).executeUpdate();
+            session.createNativeQuery(createSQL).executeUpdate();
 
             transaction.commit();
-            System.out.println("Users table has been created");
+            System.out.println(" Users table created successfully");
 
         } catch (Exception e) {
-            e.getMessage();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            System.out.println(" Error creating users table: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -50,9 +54,11 @@ public class UserDaoHibernateImpl implements UserDao {
             Query query = session.createNativeQuery(dropTableSql);
             query.executeUpdate();
 
+
             transaction.commit();
 
-            System.out.println("Users table has been dropped");
+            System.out.println("DROP: Users table dropped successfully");
+
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -64,76 +70,66 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void saveUser(String name, String lastName, byte age) {
         Transaction transaction = null;
-        Long userId = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-
             User user = new User(name, lastName, age);
+
             session.save(user);
 
             transaction.commit();
-            userId = user.getId();
-            System.out.println("User '" + name + " " + lastName + "' saved with ID: " + userId);
+
+            System.out.println("User saved successfully");
         } catch (Exception e) {
+
         }
     }
 
-    @Override
-    public void removeUserById(long id) {
-        Transaction transaction = null;
+        @Override
+        public void removeUserById ( long id){
+            Transaction transaction = null;
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
+            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                transaction = session.beginTransaction();
 
-            Query query = session.createQuery("delete from User where id=:id");
-            query.setLong("id", id);
+                User user = session.get(User.class, id);
 
-            int result = query.executeUpdate();
+                if (user != null) {
+                    session.delete(user);
+                    transaction.commit();
+                }
 
-            if (result > 0) {
-                System.out.println("User with ID: " + id + " has been removed");
-            } else {
-                System.out.println("User with ID: " + id + " has NOT been removed");
+                System.out.println("User deleted successfully");
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
             }
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
+        }
+
+        @Override
+        public List<User> getAllUsers () {
+        try  (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return  session.createQuery("from User").list();
+        }
+        }
+
+        @Override
+        public void cleanUsersTable () {
+            Transaction transaction = null;
+            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                transaction = session.beginTransaction();
+
+                String hql = "DELETE FROM User";
+                Query query = session.createQuery(hql);
+
+                int deleted = query.executeUpdate();
+                transaction.commit();
+
+                System.out.println(deleted + " users deleted successfully");
+            } catch (Exception e) {
+                e.getMessage();
             }
         }
     }
-
-    @Override
-    public List<User> getAllUsers() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String queryString = "FROM User";
-            Query<User> query = session.createQuery(queryString, User.class);
-
-            List<User> users = query.getResultList();
-
-            System.out.println("Retrieved " +  users.size() + " users");
-            return users;
-        } catch (Exception e) {
-            e.getMessage();
-            return new ArrayList<>();
-        }
-    }
-
-    @Override
-    public void cleanUsersTable() {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-
-            Query query = session.createQuery("DELETE FROM User");
-            int result = query.executeUpdate();
-
-            transaction.commit();
-
-            System.out.println("Cleaned " +  result + " users");
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
-}
