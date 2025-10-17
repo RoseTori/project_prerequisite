@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b721422d-9b26-4f96-bc3d-7f5800dc025d" name="Changes" comment="Created dog and timer beans that are connected to AnimalCage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/model/AnimalsCage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/model/AnimalsCage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MainTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Application.executor": "Run",
     "JUnit.AppTest.executor": "Run",
     "JUnit.MainTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
