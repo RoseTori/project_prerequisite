@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b721422d-9b26-4f96-bc3d-7f5800dc025d" name="Changes" comment="Added @Bean(&quot;cat&quot;) with @Scope(&quot;prototype&quot;) implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/model/Dog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/AnimalsCage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/AnimalsCage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/Timer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
+    <list default="true" id="b721422d-9b26-4f96-bc3d-7f5800dc025d" name="Changes" comment="Created dog and timer beans that are connected to AnimalCage">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1760676796965</updated>
       <workItem from="1760676799811" duration="680000" />
-      <workItem from="1760677527267" duration="3449000" />
+      <workItem from="1760677527267" duration="4384000" />
     </task>
     <task id="LOCAL-00001" summary="Added @Bean(&quot;cat&quot;) with @Scope(&quot;prototype&quot;) implementation">
       <option name="closed" value="true" />
@@ -123,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760677245693</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Created dog and timer beans that are connected to AnimalCage">
+      <option name="closed" value="true" />
+      <created>1760683776149</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760683776149</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added @Bean(&quot;cat&quot;) with @Scope(&quot;prototype&quot;) implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added @Bean(&quot;cat&quot;) with @Scope(&quot;prototype&quot;) implementation" />
+    <MESSAGE value="Created dog and timer beans that are connected to AnimalCage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created dog and timer beans that are connected to AnimalCage" />
   </component>
 </project>
