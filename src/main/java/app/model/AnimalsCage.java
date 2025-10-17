@@ -26,4 +26,5 @@ public class AnimalsCage {
     public Timer getTimer() {
         return timer;
     }
+    private String test;
 }
