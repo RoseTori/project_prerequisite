@@ -15,8 +15,7 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "car")
     private User user;
 
 

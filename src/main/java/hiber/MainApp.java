@@ -21,30 +21,7 @@ public class MainApp {
 
       UserService userService = context.getBean(UserService.class);
 
-      User user1 = new User("User1", "Lastname1", "user1@mail.ru");
-      Car car1 = new Car("Toyota", 1);
-      user1.setCar(car1);
-      car1.setUser(user1);
-
-      User user2 = new User("User2", "Lastname2", "user2@mail.ru");
-      Car car2 = new Car("Ford", 2);
-      user2.setCar(car2);
-      car2.setUser(user2);
-
-      User user3 = new User("User3", "Lastname3", "user3@mail.ru");
-      Car car3 = new Car("Fiat", 3);
-      user3.setCar(car3);
-      car3.setUser(user3);
-
-      User user4 = new User("User4", "Lastname4", "user4@mail.ru");
-      Car car4 = new Car("Fiat", 4);
-      user4.setCar(car4);
-      car4.setUser(user4);
-
-      userService.add(user1);
-      userService.add(user2);
-      userService.add(user3);
-      userService.add(user4);
+      userService.createUserWithCar("user1", "Miller","user@1", "Toyota", 1);
 
        List<User> users = userService.listUsers();
        for (User user : users) {

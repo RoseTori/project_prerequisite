@@ -19,7 +19,8 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "car_id")
    private Car car;
 
    public User() {}
@@ -64,5 +65,5 @@ public class User {
 
     public Car getCar() { return car; }
 
-    public void setCar(Car car) { this.car = car; }
+    public void setCar(Car car) { this.car = car; car.setUser(this); }
 }
