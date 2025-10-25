@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -40,16 +41,17 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User findUserByCarModelAndSeries(String model, int series) {
+    public Optional<User> findUserByCarModelAndSeries(String model, int series) {
         String hql = "SELECT u FROM User u JOIN u.car c WHERE c.model = :model AND c.series = :series";
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
         query.setParameter("model", model);
         query.setParameter("series", series);
 
         try {
-            return query.getSingleResult();
+            User user = query.getSingleResult();
+            return Optional.of(user);
         } catch (NoResultException e) {
-            return null;
+            return Optional.empty();
         }
     }
 }

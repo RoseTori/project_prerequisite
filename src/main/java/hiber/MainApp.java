@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Subgraph;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class MainApp {
    public static void main(String[] args) throws SQLException {
@@ -34,13 +35,16 @@ public class MainApp {
            }
            System.out.println();
        }
-       User found = userService.findUserByCarModelAndSeries("Toyota", 1);
+       Optional<User> found = userService.findUserByCarModelAndSeries("Toyota", 1);
 
-       if (found != null) {
+       if (found.isPresent()) {
+           User user = found.get();
            System.out.println("User found:");
-           System.out.println(" ID : " + found.getId());
-           System.out.println(" Name" + found.getFirstName() + " " + found.getLastName());
-           System.out.println(" Email: " + found.getEmail());
+           System.out.println(" ID: " + user.getId());
+           System.out.println(" Name: " + user.getFirstName() + " " + user.getLastName());
+           System.out.println(" Email: " + user.getEmail());
+       } else {
+           System.out.println("User not found");
        }
 
       context.close();

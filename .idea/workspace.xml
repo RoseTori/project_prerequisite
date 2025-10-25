@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c743c732-cccd-4dbf-b033-c3c74eeeb1a2" name="Changes" comment="Hibernate integration in Spring for DB#2">
+    <list default="true" id="c743c732-cccd-4dbf-b033-c3c74eeeb1a2" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hiber/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hiber/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hiber/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hiber/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hiber/dao/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hiber/dao/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hiber/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hiber/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hiber/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hiber/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hiber/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hiber/service/UserServiceImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +78,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MainTest" />
+        <item itemvalue="JUnit.MainTest" />
       </list>
     </recent_temporary>
   </component>
@@ -96,6 +103,8 @@
       <workItem from="1761122957563" duration="56000" />
       <workItem from="1761125718238" duration="2000" />
       <workItem from="1761127077757" duration="22000" />
+      <workItem from="1761291920778" duration="1880000" />
+      <workItem from="1761360697953" duration="1138000" />
     </task>
     <task id="LOCAL-00001" summary="Added dependencies on all animals">
       <option name="closed" value="true" />
@@ -148,9 +157,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added dependencies on all animals" />
-    <MESSAGE value="." />
     <MESSAGE value="Hibernate integration in Spring for DB" />
     <MESSAGE value="Hibernate integration in Spring for DB#2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hibernate integration in Spring for DB#2" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>
