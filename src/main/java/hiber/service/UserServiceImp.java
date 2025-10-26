@@ -34,6 +34,7 @@ public class UserServiceImp implements UserService {
 
     }
 
+    @Transactional
     @Override
     public User createUserWithCar(String firstName, String lastName, String email, String carModel, int series) {
        return userDao.createUserWithCar(firstName, lastName, email, carModel, series);
